@@ -30,3 +30,6 @@ override.tf.json
 
 # Credentials files
 .creds
+
+# Terraform Lock files
+.terraform.lock.hcl
