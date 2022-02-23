@@ -1,7 +1,13 @@
+variable "vpcs" {
+  type        = map(any)
+  description = "Collection of VPCs to use in the network"
+}
+
+/*
 variable "mgmt_vpc_cidr_block" {
     type = string
     description = "Management VPC CIDR Block"
-    default = "10.1.1.0/24"
+    default = 
 }
 
 variable "services_vpc_cidr_block" {
@@ -9,3 +15,4 @@ variable "services_vpc_cidr_block" {
     description = "Services VPC CIDR Block"
     default = "10.1.2.0/24"
 }
+*/
