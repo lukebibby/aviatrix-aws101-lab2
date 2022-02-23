@@ -8,3 +8,12 @@ resource "aws_vpc" "management_vpc" {
         Name = "ManagementVPC"
     }
 }
+
+resource "aws_vpc" "services_vpc" {
+    cidr_block = var.services_vpc_cidr_block
+
+
+    tags = {
+        Name = "ServicesVPC"
+    }
+}
