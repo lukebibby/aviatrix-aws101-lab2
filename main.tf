@@ -13,6 +13,9 @@ resource "aws_vpc" "vpcs" {
 resource "aws_internet_gateway" "igws" {
   for_each   = var.vpcs
   vpc_id     = aws_vpc.vpcs[each.key].id
+  tags = {
+    Name = each.value.name
+  }
 }
 
 /* Management Subnets */
@@ -20,4 +23,7 @@ resource "aws_subnet" "mgmt_subnets" {
   for_each   = var.mgmt_subnets
   vpc_id     = aws_vpc.vpcs["mgmt_vpc"].id
   cidr_block = each.value.cidr_block
+  tags = {
+    Name = each.value.name
+  }
 }
