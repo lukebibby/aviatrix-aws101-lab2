@@ -12,7 +12,7 @@ resource "aws_vpc" "vpcs" {
 /* Internet Gateways */
 resource "aws_internet_gateway" "igws" {
   for_each   = var.vpcs
-  vpc_id     = aws_vpc.vpcs[each.value.name].id
+  vpc_id     = aws_vpc.vpcs["${each.value.name}"].id
 }
 
 /* Management Subnets */
