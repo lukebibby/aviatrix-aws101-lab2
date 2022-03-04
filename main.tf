@@ -13,7 +13,7 @@ resource "aws_vpc" "vpcs" {
 resource "aws_subnet" "mgmt_subnets" {
   for_each   = var.mgmt_subnets
   vpc_id     = aws_vpc.vpcs["mgmt_vpc"].id
-  cidr_block = each.value.subnets.cidr_block
+  cidr_block = each.value.cidr_block
 }
 
 /* Transit GW */ /*
