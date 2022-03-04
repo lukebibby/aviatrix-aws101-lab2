@@ -10,9 +10,9 @@ resource "aws_vpc" "vpcs" {
 }
 
 /* Subnets */
-resource "aws_subnet" "tgw" {
-  for_each   = var.vpcs
-  vpc_id     = aws_vpc.vpcs[each.key].id
+resource "aws_subnet" "mgmt_subnets" {
+  for_each   = var.mgmt_subnets
+  vpc_id     = aws_vpc.vpcs["mgmt_vpc"].id
   cidr_block = each.value.subnets.cidr_block
 }
 
